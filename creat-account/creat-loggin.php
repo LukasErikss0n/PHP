@@ -8,14 +8,16 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <h1>creat account her</h1>
-    <a href="../index.php">Go back</a>
+    <div class="return-wrapper">
+        <a href="../index.php" class="go-back">Go back</a>
+    </div>
     <div class="wrapper">
+        <h1>Sign up</h1>
         <form action="upload-new-account.php" method="POST" enctype="multipart/form-data">
             <label for="creatusername">User name</label>
-            <input type="text" name="creatusername">
+            <input type="text" name="creatusername" >
            <label for="creatpassword">Password</label>
-           <input type="password" name="creatpassword">
+           <input type="password" name="creatpassword" >
            <input name="submit" type="submit" value="Submit">
         </form>
     </div>

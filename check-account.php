@@ -17,7 +17,7 @@ if(isset($_POST['submit'])){
         if($name === $input_name || $password === $input_password){
             session_start();
             $_SESSION["username"] = $input_name;
-            header("location: logdin.php?logidinas:$input_name");
+            header("location: logdin.php");
 
         }
          
