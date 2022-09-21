@@ -6,13 +6,16 @@
 body{
     background-color: red;
 }
+
+
+
 .wrapper{
     margin-top: 10vh;
     display: flex;
     justify-content: center;
 }
 
-form{
+.form{
     width: 30%;
     height: 20vh;
     display: flex;
@@ -26,4 +29,3 @@ form{
 label{
     color: gray;
 }
-
