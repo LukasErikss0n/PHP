@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper{
+    margin-top: 10vh;
+    display: flex;
+    justify-content: center;
+}
+
+form{
+    width: 30%;
+    height: 20vh;
+    display: flex;
+    background-color: beige;
+    flex-direction: column;
+    padding: 10px 12px;
+}
