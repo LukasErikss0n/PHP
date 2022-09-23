@@ -4,6 +4,10 @@ include "server-connect.php";
 if(isset($_POST['submit'])){
     $input_name = $_POST['username'];
     $input_password = $_POST['password'];
+    if($input_name === "" or $input_password === ""){
+        $input_name = "incorrect";
+        $input_password = "nopasswordfound";
+    }
 
     $user_info = "SELECT id, username, user_password from account where username = '$input_name'";
     $result = $con->query($user_info);
