@@ -21,7 +21,7 @@ if(isset($_POST['submit'])){
         if($name === $input_name && $password === $input_password){
             session_start();
             $_SESSION["username"] = $input_name;
-            header("location: logdin.php");
+            header("location:logdin.php");
 
         }else{
             echo "no account found by the name " . $input_name. " pleas try again ";

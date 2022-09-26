@@ -13,20 +13,21 @@ session_start();
         $fileExtensionUpper = explode('.', $fileName);
         $fileActualExtensionLower = strtolower(end($fileExtensionUpper));
 
-        $allowed = array ('jpg');
+        $allowed = array ('jpg', 'png');
 
         if (in_array($fileActualExtensionLower, $allowed)) {
             if ($fileError === 0) {
-                if ($fileSize < 5000000) {
+                if ($fileSize < 500000000) { //ta bort 2 nollor
                     $fileDestination = 'uploads/ ' . $fileName;
                     move_uploaded_file($fileTempName, $fileDestination);
-                    header("location: logdin.php?upploadsuccess");
-
-
+                    foreach(glob('uploads/'.$fileName)as $files){
+                        echo "<img src = 'uploads/$files' >";
+                    };
+                    header("location:logdin.php?upploadsuccess");
                 } else {
                     echo "your file is to big";
                 }
-            } else {
+            }else {
                 echo "there was an error uploading your file";
             }
         }else {
@@ -34,11 +35,11 @@ session_start();
         }
 
     }
-} else{
+}else{
     echo "please login before you uppload";
 }
 
 
 
-//move_uploaded_file($_FILES)
+
 

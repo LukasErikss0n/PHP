@@ -1,0 +1,45 @@
+.label-file{
+    border-radius: 10px;
+    border: none;
+    margin-top: 20px;
+    padding: 10px 12px;
+    background-color: #2c528b;
+    color: white;
+    margin-bottom: 4px;
+}
+
+.ghost{
+    margin-left: -79px;
+    padding: 12px 76px;
+}
+
+.wrapper{
+    display: flex;
+    justify-content: center;
+}
+
+input[type=submit]{
+    margin-left: -5px;
+    border-radius: 10px;
+    border: none;
+    margin-top: 20px;
+    padding: 10px 12px;
+    background-color: #2c528b;
+    color: white;
+    margin-bottom: 4px;
+
+}
+
+.label-file:hover{
+    background-color: #667996;
+}
+
+input[type=submit]:hover{
+    background-color: #29579b;
+}
+
+::file-selector-button {
+    display: none;
+}
+
+
