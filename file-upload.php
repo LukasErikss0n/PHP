@@ -18,12 +18,15 @@ session_start();
         if (in_array($fileActualExtensionLower, $allowed)) {
             if ($fileError === 0) {
                 if ($fileSize < 500000000) { //ta bort 2 nollor
+
                     $fileDestination = 'uploads/ ' . $fileName;
                     move_uploaded_file($fileTempName, $fileDestination);
-                    foreach(glob('uploads/'.$fileName)as $files){
-                        echo "<img src = 'uploads/$files' >";
-                    };
+                    $myfile = fopen("textfile.txt", "a") or die("Unable to open file!");
+                    $txt = $_SESSION['username'] .": " . $fileName . "\n";
+                    fwrite($myfile, $txt);
+                    fclose($myfile);
                     header("location:logdin.php?upploadsuccess");
+
                 } else {
                     echo "your file is to big";
                 }
@@ -35,6 +38,7 @@ session_start();
         }
 
     }
+   
 }else{
     echo "please login before you uppload";
 }
