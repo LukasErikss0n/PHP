@@ -32,4 +32,7 @@ if(isset($_POST['submit'])){
         echo "no account found, incorrect password or username";
         echo "<a href = 'index.php'>go back</a>";
     }
+    
+    $con->close();
+
 }
