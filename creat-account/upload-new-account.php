@@ -21,16 +21,11 @@ if(isset($_POST['submit'])){
             
         }else{
             header("location: ../creat-account/creat-loggin.php?error=invalid");
-
-            //echo "<a href='../index.php' class='go-back'>Go back</a>";
-            //echo "<br>";
             //echo "username already exist";
         }
 
     }else {
             header("location: ../creat-account/creat-loggin.php?error=empty");
-            //echo "Error" . "please full in the fields";
-            //echo "värden måste vara i fyllda";
         }
 
 }   

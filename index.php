@@ -15,6 +15,16 @@
             <input type="text" name="username">
            <label for="password">Password</label>
            <input type="password" name="password">
+           <?php 
+            if(isset($_GET["error"])) {
+                if($_GET["error"] === "none"){
+                 echo "<p class = 'error'>*Incorrect password or username</p>";
+                }
+                else if($_GET["error"] === "invalid"){
+                    echo "<p class = 'error'>*Invalid username or password</p>";
+                }
+            } 
+        ?>
            <input name="submit" type="submit" value="Submit">
            <a href="./creat-account/creat-loggin.php" class ="creat-account-link">Sign up?</a>
         </form>

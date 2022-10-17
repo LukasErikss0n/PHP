@@ -21,10 +21,10 @@
            <?php 
             if(isset($_GET["error"])) {
                 if($_GET["error"] === "empty"){
-                 echo "Please fill in username or password";
+                 echo "<p class = 'error'>*Please fill in username or password</p>";
                 }
                 else if($_GET["error"] === "invalid"){
-                    echo "invalid username or password";
+                    echo "<p class = 'error'>*Invalid username or password</p>";
                 }
             } 
         ?>

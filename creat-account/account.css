@@ -7,3 +7,9 @@
     margin-top: 5vh;
     margin-left: 5vw;
 }
+
+.error{
+    text-align: center;
+    margin-top: 10px;
+    color: #ff0000;
+}

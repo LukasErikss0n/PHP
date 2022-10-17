@@ -10,8 +10,6 @@ if(isset($_POST['submit'])){
     $stmt->bind_param("s", $input_name);
     $stmt->execute();
     $result = $stmt->get_result();
-   // var_dump($result);
-    //$result = $con->query($user_info);
 
     if (mysqli_num_rows($result) > 0) {
         $obj = mysqli_fetch_assoc($result);
@@ -26,13 +24,13 @@ if(isset($_POST['submit'])){
             header("location:logdin.php");
 
         }else{
-            echo "no account found by the name " . $input_name. " pleas try again ";
-            echo "<a href = 'index.php'>go back</a>";
+            header("location: index.php?error=none");
+           // echo "no account found by the name " . $input_name. " pleas try again ";
         }
          
     } else {
-        echo "no account found, incorrect password or username";
-        echo "<a href = 'index.php'>go back</a>";
+        header("location: index.php?error=none");
+        //echo "no account found, incorrect password or username";
     }
     
     $con->close();
