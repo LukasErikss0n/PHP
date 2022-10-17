@@ -18,8 +18,19 @@
             <input type="text" name="creatusername" >
            <label for="creatpassword">Password</label>
            <input type="password" name="creatpassword" >
+           <?php 
+            if(isset($_GET["error"])) {
+                if($_GET["error"] === "empty"){
+                 echo "Please fill in username or password";
+                }
+                else if($_GET["error"] === "invalid"){
+                    echo "invalid username or password";
+                }
+            } 
+        ?>
            <input name="submit" type="submit" value="Submit">
         </form>
+      
     </div>
 </body>
 </html>

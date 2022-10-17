@@ -14,19 +14,13 @@ if(isset($_POST['submit'])){
     //$result = $con->query($user_info);
 
     if (mysqli_num_rows($result) > 0) {
-        $h = password_hash($input_password, PASSWORD_DEFAULT);
-        echo $input_password;
-        echo "<br>";
-        echo $h;
-        echo "<br>";
         $obj = mysqli_fetch_assoc($result);
-        //var_dump($obj);
         $name = $obj['username'];
         $id = $obj['id'];
         $hash = $obj['user_password'];
-        var_dump(password_verify('$input_password', $hash));
 
         if(password_verify($input_password, $hash)){
+           echo $hash;
             session_start();
             $_SESSION["username"] = $input_name;
             header("location:logdin.php");
