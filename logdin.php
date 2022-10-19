@@ -15,6 +15,11 @@
             <input type="submit" value="submit file" name="submit">
            
         </form>
+        <div class="options">
+            <a href="upload.php" class = "log-out" >Your gallary</a>
+            <a href="loggout.php" class = "log-out">Log out</a>
+        </div>
+        
     </div>
 </body>
 </html>

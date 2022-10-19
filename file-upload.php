@@ -1,4 +1,5 @@
 <?php
+include "server-connect.php";
 session_start();
  if (isset($_SESSION["username"])) {
     if(isset($_POST['submit'])){
@@ -15,17 +16,28 @@ session_start();
 
         $allowed = array ('jpg', 'png');
 
+
+        $stmt = $con->prepare("SELECT id, username from account where username = ?");
+        $stmt->bind_param("s", $_SESSION['username']);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $id;
+        if (mysqli_num_rows($result) > 0) {
+            $obj = mysqli_fetch_assoc($result);
+            $id = $obj['id'];
+        }
+
         if (in_array($fileActualExtensionLower, $allowed)) {
             if ($fileError === 0) {
                 if ($fileSize < 500000000) { //ta bort 2 nollor
 
-                    $fileDestination = 'uploads/ ' . $fileName;
+                    $fileDestination = 'uploads/' . $fileName;
                     move_uploaded_file($fileTempName, $fileDestination);
-                    $myfile = fopen("textfile.txt", "a") or die("Unable to open file!");
-                    $txt = $_SESSION['username'] .": " . $fileName . "\n";
-                    fwrite($myfile, $txt);
-                    fclose($myfile);
-                    header("location:logdin.php?upploadsuccess");
+
+                    $insertTitle = "insert into upload (user_id, file_name) values('$id', '$fileName')";
+                    $appendTitle = mysqli_query($con, $insertTitle);
+                    header("location:upload.php?upploadsuccess");
 
                 } else {
                     echo "your file is to big";
@@ -38,7 +50,10 @@ session_start();
         }
 
     }
-   
+
+
+
+
 }else{
     echo "please login before you uppload";
 }

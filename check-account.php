@@ -21,6 +21,7 @@ if(isset($_POST['submit'])){
            echo $hash;
             session_start();
             $_SESSION["username"] = $input_name;
+            $_SESSION["user_id"] = $id;
             header("location:logdin.php");
 
         }else{

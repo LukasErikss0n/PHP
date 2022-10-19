@@ -42,4 +42,12 @@ input[type=submit]:hover{
     display: none;
 }
 
-
+.log-out{
+    text-decoration: none;
+    padding: 10px 12px;
+    border-radius: 20px;
+    background-color: #2c528b;
+    color: white;
+    margin-top: 5vh;
+    margin-left: 30vw;
+}
